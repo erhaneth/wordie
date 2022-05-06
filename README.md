@@ -1,4 +1,4 @@
-#Wordie 
+# Wordie 
 
 Players have six attempts to guess a five-letter word, with feedback given for each guess in the form of colored (green, yellow and gray) tiles showing when letters match or already being used in the correct position.
 
@@ -26,7 +26,7 @@ The game play is as follows:
 - Creating the on-screen keyboard
 - Making the on-screen keyboard generate input
 - Accepting user input
-- Adding notifications
+- Adding notifications for correctness
 - Adding color changes animation
 - Create how to play instructions
 - Create 5 letter words in word.js file
@@ -35,7 +35,7 @@ The game play is as follows:
 
 - HTML/CSS
 - JavaScript
-- Libraries ?
+- Libraries: DOM
 - Toaster.js for the notifications
 
 <!--  -->
