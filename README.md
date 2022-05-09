@@ -1,4 +1,4 @@
-# Wordie 
+# Wordie
 
 Players have six attempts to guess a five-letter word, with feedback given for each guess in the form of colored (green, yellow and gray) tiles showing when letters match or already being used in the correct position.
 
@@ -22,14 +22,14 @@ The game play is as follows:
 
 ## MVP Goals
 
-- Creating 5x6 game board 
+- Creating 5x6 game board
 - Creating the on-screen keyboard
 - Making the on-screen keyboard generate input
 - Accepting user input
 - Adding notifications for correctness
 - Adding color changes animation
 - Create how to play instructions
-- Create 5 letter words in word.js file
+- Pull 5 letter words in word.js file
 
 ## Tech Stacks
 
