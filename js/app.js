@@ -10,6 +10,7 @@ var col = 0;
 
 var gameOver = false;
 //hardcode a solution
+var solution = 'START';
 
 
 
@@ -37,10 +38,19 @@ var gameOver = false;
 
 
 document.getElementById('keyboard-container').addEventListener('click', (event) => {
-    console.log(event.target.attributes['data-key'].nodeValue);
+    console.log(row, col, 'board');
     board[row][col] = event.target.attributes['data-key'].nodeValue
-    //select the tile with id of row-col 
-    // change the inner text to what letter user clicked
+   // console.log(board, 'board');
+     //select the tile with id of row-col 
+     let currTile = document.getElementById(`${row}-${col}`)
+     console.log(currTile, 'tile');
+        // change the inner text to what letter user clicked
+        currTile.innerText = board[row][col];
+        console.log(currTile.innerText, 'text');
+
+    
+  
+    
     //check board if current letter is matching the letter solution
         // if so change the tile to green
         //else if letter is in the current row -- yellow
@@ -48,7 +58,7 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
 
     col++
     // if col > width we know that we need to make new row 
-     if(col === 5){
+     if(col > 5){
          row++
          col = 0;
      }
@@ -56,3 +66,5 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
 
 
 })
+
+
