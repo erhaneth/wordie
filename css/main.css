@@ -6,3 +6,31 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
+.horizontal-line {
+    border: 1px solid black;
+}
+
+.vertical-line {
+    border: 1px solid black;
+}
+#board {
+    width: 496px;
+    height: 595px;
+    /* background-color: gray; */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.tile {
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    
+    /* Text */
+    font-size: 8px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+}
