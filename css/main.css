@@ -69,3 +69,21 @@ body {
   .spacer-half {
     flex-grow: 0.5;
   }
+
+  .green {
+    background-color: #6AAA64;
+    color: white;
+    border-color: white;
+}
+
+.yellow {
+    background-color: #C9B458;
+    color: white;
+    border-color: white;
+}
+
+.gray {
+    background-color: #787C7E;
+    color: white;
+    border-color:white;
+}
