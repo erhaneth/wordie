@@ -7,7 +7,8 @@ var height = 6;
 var row = 0;
 //current letter
 var col = 0;
-
+var letter = 0;
+let word = 0;
 
 var gameOver = false;
 //hardcode a solution
@@ -78,32 +79,30 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
  
 }
 
-
-
-
-//check board if current letter is matching the letter solution
-
-//     for(let c = 0; c < width; c++)
-//     //let currTile = document.getElementById(`${row}-${col}`)
-
-// }
-// // if so change the tile to green
-// if(word === letter){
-    //     tile.classList.add("green")
-    
-    //     //else if letter is in the current row -- yellow
-    // } else if(word.includes(letter)){
-        //     tile.classList.add("yellow")
+  //check board if current letter is matching the letter solution
+  function checkTileColor(){
         
-        //     //else make it grey
-        // } else {
-            //     tile.classList.add("grey")
-            // }
+    // if so change the tile to green
+    if(currTile === letter){
+        tile.classList.add("green")
+        //else if letter is in the current row -- yellow
+
+    } else if(word.includes(letter)){
+
+        tile.classList.add("yellow")
+
+        //else make it grey
+    } else {
+
+        tile.classList.add("grey")
+}
+} 
+        
+            
+            
             
             
             // if col > width we know that we need to make new row 
-            
-            
             
             col++;
             if (col > 4) {
