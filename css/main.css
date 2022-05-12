@@ -1,6 +1,12 @@
 h1 {
     text-align: center;
 }
+p {
+    text-align: center;
+}
+ol {
+    text-align: center;
+}
 body {
     background-color: rgb(253, 235, 235);
     font-family: Arial, Helvetica, sans-serif;
@@ -14,6 +20,7 @@ body {
 .vertical-line {
     border: 1px solid black;
 }
+
 #board {
     width: 496px;
     height: 595px;
@@ -28,25 +35,26 @@ body {
     width: 75px;
     height: 75px;
     border: 1px solid black;
-    
+
     /* Text */
     font-size: 35px;
     display: flex;
-    justify-content: center; 
-    align-items: center;    
+    justify-content: center;
+    align-items: center;
 }
+
 #keyboard-container {
     height: 100px;
-  }
-  
-  .keyboard-row {
+}
+
+.keyboard-row {
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 0 auto 8px;
-  }
-  
-  .keyboard-row button {
+}
+
+.keyboard-row button {
     font-family: inherit;
     font-weight: bold;
     border: 0;
@@ -60,17 +68,17 @@ body {
     margin-right: 6px;
     border-radius: 4px;
     user-select: none;
-  }
-  
-  .keyboard-row button.wide-button {
-    flex-grow: 1.5;
-  }
-  
-  .spacer-half {
-    flex-grow: 0.5;
-  }
+}
 
-  .green {
+.keyboard-row button.wide-button {
+    flex-grow: 1.5;
+}
+
+.spacer-half {
+    flex-grow: 0.5;
+}
+
+.green {
     background-color: #6AAA64;
     color: white;
     border-color: white;
@@ -85,5 +93,5 @@ body {
 .grey {
     background-color: #787C7E;
     color: white;
-    border-color:white;
+    border-color: white;
 }
