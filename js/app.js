@@ -61,45 +61,48 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
     
     // // console.log(currTile, "any", board, 'boardelete')
     
-} else {
+    } else {
     board[row][col] = event.target.innerText
     
     
-    console.log(currTile, 'tile');
+    // console.log(currTile, 'tile');
     // change the inner text to what letter user clicked
     currTile.innerText = board[row][col];
-    console.log(currTile.innerText, 'text');
- 
-}
-//check board if current letter is matching the letter solution
-  function checkTileColor(userWord){
-      for(let r = 0; r < width; r++){
-    // if so change the tile to green
-    if(userWord[r] === solution[r]){
-        currTile.classList.add("green")
-        console.log('solutiongreen', board[r-1])
-        //else if letter is in the current row -- yellow
-    } else if(solution.includes(userWord[r])){
-
-        currTile.classList.add("yellow")
-
-        //else make it grey
-    } else {
-
-        currTile.classList.add("grey")
-      }
- }
-} 
-// checkTileColor()
-                  
- // if col > width we know that we need to make new row 
-            
+    // console.log(currTile.innerText, 'text');
     col++;
     if (col > 4) {
     row++;
     col = 0;
     } 
-    console.log(board);
+    console.log("col",col);
+    console.log("row",row)
+    }
+//check board if current letter is matching the letter solution
+    function checkTileColor(userWord){
+        let checktile
+        for(let r = 0; r < width; r++){
+    // if so change the tile to green
+            checktile = document.getElementById(`${row-1}-${r}`)
+            if(userWord[r] === solution[r]){
+                checktile.classList.add("green")
+                console.log('solutiongreen', board[r-1])
+                //else if letter is in the current row -- yellow
+            } else if(solution.includes(userWord[r])){
+
+                checktile.classList.add("yellow")
+
+                //else make it grey
+            } else {
+
+                checktile.classList.add("grey")
+            }
+        }
+    } 
+// checkTileColor()
+                  
+ // if col > width we know that we need to make new row 
+            
+
           
 })
 
