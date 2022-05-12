@@ -1,5 +1,5 @@
 //App state global variables
-//Indicating the length of the words
+//Indicate the length of the words
 var width = 5;
 //Number of guesses for the user
 var height = 6;
@@ -7,12 +7,10 @@ var height = 6;
 var row = 0;
 
 var col = 0;
-var gameOver = false;
-
 //Hardcode a solution word
 var solution = 'start';
 
-//Creating game board with array that store multiple items
+//Create game board with array that store multiple items
 
 const board = [
     [' ', ' ', ' ', ' ', ' '],
@@ -29,26 +27,28 @@ for (let r = 0; r < height; r++) {
         let tile = document.createElement("div");
         //Create <div id='0-0'></div>
         tile.id = r + "-" + c;
-        //Adding tile to classList
+        //Adding the class "tile" to tile div
         tile.classList.add("tile");
         //Empty string means letter will assign when users input a letter
         tile.innerText = "";
-        //
+        //Adding 30 tiles divs to parent boards
         document.getElementById("board").appendChild(tile);
     }
 }
-//Dom Selector -- add event listener when user click!
+//event listener when user click!
 document.getElementById('keyboard-container').addEventListener('click', (event) => {
 
-    //select the current tile with id of row-col -- currTile is global variable
+    //Select the current tile with id of row-col -- currTile is initial variable
     let currTile = document.getElementById(`${row}-${col}`)
     //When user click enter button on-Screen keyboard
     if (event.target.innerText === 'ENTER') {
-        //An object that combine letters and prevent to go next row when enter button clicked
+        //Make board row to string
         let userGuess = board[row - 1].join('').toLowerCase()
         //console.log('here', userGuess)
 
         if (userGuess === solution) {
+            document.getElementById('youWin').innerText = "You Got It!"
+            console.log("You Got It!")
         }
         //Invoke the checkTileColor when user guessed right the solution
         checkTileColor(userGuess)
@@ -77,22 +77,26 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
         for (let r = 0; r < width; r++) {
             //While looping, check with div id
             checkTile = document.getElementById(`${row - 1}-${r}`)
-            // if so change the tile to green
+            //If so change the tile to green
             if (userWord[r] === solution[r]) {
                 checkTile.classList.add("green")
+                
 
-                //else if letter is in the current row -- yellow
+               //else if letter is in the current row -- yellow
             } else if (solution.includes(userWord[r])) {
 
                 checkTile.classList.add("yellow")
 
-                //else make it grey
+               //else make it grey
             } else {
 
                 checkTile.classList.add("grey")
+                
+
             }
         }
     }
+    
 
 })
 

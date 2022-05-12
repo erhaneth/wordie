@@ -27,20 +27,19 @@ The game play is as follows:
 - Making the on-screen keyboard generate input
 - Accepting user input
 - Adding notifications for correctness
-- Adding color changes animation
+- Adding color background color
 - Create how to play instructions
-- Pull 5 letter words in word.js file
 
 ## Tech Stacks
 
 - HTML/CSS
 - JavaScript
-- Libraries: DOM
-- Toaster.js for the notifications
 
 <!--  -->
 
 ## Stretch Goals
 
+- Toaster.js for the notifications
+- Pull 5 letter words in word.js file
 - Adding night mode button
 - Adding Programming words mode
