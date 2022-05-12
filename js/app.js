@@ -3,20 +3,15 @@
 var width = 5;
 //number of guesses
 var height = 6;
-//current guess
-var row = 0;
-//current letter
-var col = 0;
-var letter = 0;
-let word = 0;
 
+var row = 0;
+
+var col = 0;
 var gameOver = false;
+
 //hardcode a solution
 var solution = 'start';
-
-
-
-
+//Creating gameboard
 
    const board = [
                 [' ', ' ', ' ', ' ', ' '],
@@ -38,21 +33,20 @@ var solution = 'start';
         }
     }
 
-
-
 document.getElementById('keyboard-container').addEventListener('click', (event) => {
-    console.log(row, col, 'board');
-    console.log(event, 'eventt');
+   
     //select the tile with id of row-col 
     let currTile = document.getElementById(`${row}-${col}`)
-    currTile.style.border = 'orange solid 2px'
+    console.log(currTile, 'currtileeee')
+    // currTile.style.border = 'orange solid 2px'
     
     if(event.target.innerText === 'ENTER'){
-        const userGuess =  board[row].join('')
+        let userGuess =  board[row -1].join('').toLowerCase()
+
         if(userGuess === solution){
-            console.log('Correct')
         }
-    
+        console.log(board[row - 1])
+        checkTileColor(userGuess) 
         
     // } else if (event.target.innerText === 'DEL'){
     //     let deleteTile = document.getElementById(`${row}-${col -1}`)
@@ -68,7 +62,6 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
     // // console.log(currTile, "any", board, 'boardelete')
     
 } else {
-    console.log('call', col)
     board[row][col] = event.target.innerText
     
     
@@ -78,42 +71,36 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
     console.log(currTile.innerText, 'text');
  
 }
-
-  //check board if current letter is matching the letter solution
-  function checkTileColor(){
-        
+//check board if current letter is matching the letter solution
+  function checkTileColor(userWord){
+      for(let r = 0; r < width; r++){
     // if so change the tile to green
-    if(currTile === letter){
-        tile.classList.add("green")
+    if(userWord[r] === solution[r]){
+        currTile.classList.add("green")
+        console.log('solutiongreen', board[r-1])
         //else if letter is in the current row -- yellow
+    } else if(solution.includes(userWord[r])){
 
-    } else if(word.includes(letter)){
-
-        tile.classList.add("yellow")
+        currTile.classList.add("yellow")
 
         //else make it grey
     } else {
 
-        tile.classList.add("grey")
-}
+        currTile.classList.add("grey")
+      }
+ }
 } 
-        
+// checkTileColor()
+                  
+ // if col > width we know that we need to make new row 
             
-            
-            
-            
-            // if col > width we know that we need to make new row 
-            
-            col++;
-            if (col > 4) {
-                row++;
-                col = 0;
-            } 
-            console.log(board);
-            
-
-
-
+    col++;
+    if (col > 4) {
+    row++;
+    col = 0;
+    } 
+    console.log(board);
+          
 })
 
 
