@@ -8,7 +8,7 @@ The aim of Wordie is to guess the correct Wordie, so to begin, simply enter any 
 
 The game play is as follows:
 
-- Shoot a word as a guess for the hidden daily word.
+- Shoot a word as a guess for the hidden word.
 
 - Any letters which are within the hidden target word are colored in yellow.
 
@@ -27,7 +27,7 @@ The game play is as follows:
 - Making the on-screen keyboard generate input
 - Accepting user input
 - Adding notifications for correctness
-- Adding color background color
+- Adding color to background color
 - Create how to play instructions
 
 ## Tech Stacks

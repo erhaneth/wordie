@@ -8,7 +8,7 @@ let row = 0;
 
 let col = 0;
 //Hardcode a solution word
-let solution = 'start';
+let solution = 'those';
 
 //Create game board with array that store multiple items
 
