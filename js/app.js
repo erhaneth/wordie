@@ -1,14 +1,14 @@
 //App state global variables
 //Indicate the length of the words
-var width = 5;
+let width = 5;
 //Number of guesses for the user
-var height = 6;
+let height = 6;
 
-var row = 0;
+let row = 0;
 
-var col = 0;
+let col = 0;
 //Hardcode a solution word
-var solution = 'start';
+let solution = 'start';
 
 //Create game board with array that store multiple items
 
@@ -35,7 +35,7 @@ for (let r = 0; r < height; r++) {
         document.getElementById("board").appendChild(tile);
     }
 }
-//event listener when user click!
+//Event listener when user click!
 document.getElementById('keyboard-container').addEventListener('click', (event) => {
 
     //Select the current tile with id of row-col -- currTile is initial variable
