@@ -98,6 +98,10 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
     }
     
 
+    document.querySelector('reset-button').addEventListener('click', handleClick);
+    function handleClick(){
+        console.log('clicked here');
+    }
 })
 
 
