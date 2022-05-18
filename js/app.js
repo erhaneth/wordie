@@ -12,7 +12,7 @@ let solution = 'start';
 
 //Create game board with array that store multiple items
 
-const board = [
+let board = [
     [' ', ' ', ' ', ' ', ' '],
     [' ', ' ', ' ', ' ', ' '],
     [' ', ' ', ' ', ' ', ' '],
@@ -47,8 +47,14 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
         //console.log('here', userGuess)
 
         if (userGuess === solution) {
-            document.getElementById('youWin').innerText = "You Got It!"
-            console.log("You Got It!")
+            document.getElementById('youWin').innerText = "You Won!"
+            
+        }
+        //When user guess is not correct
+        if (userGuess != solution) {
+            document.getElementById('wrong').innerText = "You Lost!"
+
+
         }
         //Invoke the checkTileColor when user guessed right the solution
         checkTileColor(userGuess)
@@ -80,28 +86,59 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
             //If so change the tile to green
             if (userWord[r] === solution[r]) {
                 checkTile.classList.add("green")
-                
 
-               //else if letter is in the current row -- yellow
+
+                //else if letter is in the current row -- yellow
             } else if (solution.includes(userWord[r])) {
 
                 checkTile.classList.add("yellow")
 
-               //else make it grey
+                //else make it grey
             } else {
 
                 checkTile.classList.add("grey")
-                
+
 
             }
         }
     }
-    
 
-    document.querySelector('reset-button').addEventListener('click', handleClick);
-    function handleClick(){
-        console.log('clicked here');
-    }
+
+
 })
 
 
+document.getElementById('reset').addEventListener('click', (event) => {
+
+    //Reset col-row to zero
+    col = 0;
+    row = 0;
+
+    //Clear board array
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+
+    //reset all of tiles
+    for (let r = 0; r < height; r++) {
+        for (let c = 0; c < width; c++) {
+            //clear the tile text
+            document.getElementById(`${r}-${c}`).innerText = ''
+            //clear tile background color
+            document.getElementById(`${r}-${c}`).classList.remove('green', 'grey', 'yellow')
+          
+        }
+    }
+    
+    //Clear the messages -- You Won, You Lost --
+    document.getElementById('youWin').innerText = ""
+    document.getElementById('wrong').innerText = ""
+
+    
+
+})
