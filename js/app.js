@@ -1,13 +1,9 @@
 //App state global variables
-//Indicate the length of the words
 let width = 5;
-//Number of guesses for the user
 let height = 6;
-
 let row = 0;
-
 let col = 0;
-//Hardcode a solution word
+//Hardcode an example solution word
 let solution = 'start';
 
 //Create game board with array that store multiple items
@@ -42,35 +38,44 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
     let currTile = document.getElementById(`${row}-${col}`)
     //When user click enter button on-Screen keyboard
     if (event.target.innerText === 'ENTER') {
-        //Make board row to string
-        let userGuess = board[row - 1].join('').toLowerCase()
-        //console.log('here', userGuess)
-
-        if (userGuess === solution) {
-            document.getElementById('youWin').innerText = "You Won!"
-            
-        }
-        //When user guess is not correct
-        if (userGuess != solution) {
+        if (row > 5) {
             document.getElementById('wrong').innerText = "You Lost!"
-
-
+            setTimeout(resetGame, 6000)
+        } else {
+            
+            //Make board row to string
+            console.log('row', row, 'col', col)
+            let userGuess = board[row - 1].join('').toLowerCase()
+            //console.log('here', userGuess)
+            
+            if (userGuess === solution) {
+                document.getElementById('youWin').innerText = "You Won!"
+                // resetGame()
+                setTimeout(resetGame, 6000)
+                
+                
+                
+            }
+            checkTileColor(userGuess)
+           
         }
-        //Invoke the checkTileColor when user guessed right the solution
-        checkTileColor(userGuess)
-
-
     } else {
-        //Print letter to current tile
-        board[row][col] = event.target.innerText
-        //Change the inner text to what letter user clicked
-        currTile.innerText = board[row][col];
+        if (row > 5) {
+            document.getElementById('wrong').innerText = "You Lost!"
+            setTimeout(resetGame, 6000)
+        } else {
 
-        // if col > width we know that we need to make new row 
-        col++;
-        if (col > 4) {
-            row++;
-            col = 0;
+            //Print letter to current tile
+            board[row][col] = event.target.innerText
+            //Change the inner text to what letter user clicked
+            currTile.innerText = board[row][col];
+
+            // if col > width we know that we need to make new row 
+            col++;
+            if (col > 4) {
+                row++;
+                col = 0;
+            }
         }
 
     }
@@ -103,12 +108,13 @@ document.getElementById('keyboard-container').addEventListener('click', (event) 
         }
     }
 
-
-
 })
 
 
-document.getElementById('reset').addEventListener('click', (event) => {
+document.getElementById('reset').addEventListener('click', resetGame);
+
+//Reset game function
+function resetGame() {
 
     //Reset col-row to zero
     col = 0;
@@ -131,14 +137,13 @@ document.getElementById('reset').addEventListener('click', (event) => {
             document.getElementById(`${r}-${c}`).innerText = ''
             //clear tile background color
             document.getElementById(`${r}-${c}`).classList.remove('green', 'grey', 'yellow')
-          
+
         }
     }
-    
+
     //Clear the messages -- You Won, You Lost --
     document.getElementById('youWin').innerText = ""
     document.getElementById('wrong').innerText = ""
 
-    
 
-})
+}
